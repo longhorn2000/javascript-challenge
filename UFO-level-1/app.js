@@ -7,7 +7,7 @@ var inputField1 = d3.select("#datetime");
 
 var tbody = d3.select("tbody");
 var resetbtn = d3.select("#reset-btn");
-var columns = ["datetime", "city", "state", "country", "shape","comments"]
+var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
 
 var populate = (dataInput) => {
 
@@ -51,6 +51,22 @@ button.on("click", () => {
         tbody.append("tr").append("td").text("No Aliens here!");
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
