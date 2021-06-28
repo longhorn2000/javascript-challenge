@@ -13,8 +13,10 @@ var inputFieldCountry = d3.select("#country");
 var inputFieldShape = d3.select("#shape");
 
 
+
 var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
-// console.log(columns);
+console.log(columns);
+
 
 
 
@@ -36,36 +38,58 @@ button.on("click", () => {
     d3.event.preventDefault();
 
 
+
     var inputDate = inputFieldDate.property("value").trim();
-    // console.log(inputDate)
+    console.log(inputDate)
+
+
 
     var inputCity = inputFieldCity.property("value").toLowerCase().trim();
-    // console.log(inputCity)
+    console.log(inputCity)
+
+
 
     var inputState = inputFieldState.property("value").toLowerCase().trim();
-    // console.log(inputState)
+    console.log(inputState)
+
+
 
     var inputCountry = inputFieldCountry.property("value").toLowerCase().trim();
-    // console.log(inputCountry)
+    console.log(inputCountry)
+
 
     var inputShape = inputFieldShape.property("value").toLowerCase().trim();
-    // console.log(inputShape)
+    console.log(inputShape)
+
+
 
     var filterDate = data.filter(data => data.datetime === inputDate);
-    // console.log(filterDate)
+    console.log(filterDate)
+
+
     var filterCity = data.filter(data => data.city === inputCity);
-    // console.log(filterCity)
+    console.log(filterCity)
+
+
     var filterState = data.filter(data => data.state === inputState);
-    // console.log(filterState)
+    console.log(filterState)
+
+
     var filterCountry = data.filter(data => data.country === inputCountry);
-    // console.log(filterCountry)
+    console.log(filterCountry)
+
     var filterShape = data.filter(data => data.shape === inputShape);
-    // console.log(filterShape)
+    console.log(filterShape)
+
+
 
     var filterCombinedData = data.filter(data => data.datetime === inputDate && data.city === inputCity && data.state === inputState && data.country === inputCountry && data.shape === inputShape);
-    // console.log(filterCombinedData)
+    console.log(filterCombinedData)
+
+    
 
     $tbody.html("");
+
 
     let response = {
         filterDate,
@@ -76,6 +100,7 @@ button.on("click", () => {
         filterCombinedData
     }
 
+
     if (response.filterCombinedData.length !== 0) {
         populate(filterCombinedData);
     } else if (response.filterCombinedData.length === 0 && ((response.filterDate.length !== 0 || response.filterCity.length !== 0 || response.filterState.length !== 0 || response.filterCountry.length !== 0 || response.filterShape.length !== 0))) {
@@ -84,6 +109,7 @@ button.on("click", () => {
         $tbody.append("tr").append("td").text("No Aliens Here!");
     }
 })
+
 
 
 
